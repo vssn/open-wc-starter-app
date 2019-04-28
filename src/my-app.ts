@@ -1,16 +1,25 @@
 import { LitElement, html, css } from 'lit-element';
 import { openWc } from './open-wc-logo';
 
+enum Testo {
+  uno = "Yo",
+  duo = "Yoyo"
+}
+
 class MyApp extends LitElement {
+  testo
+  
   static get properties() {
     return {
       title: { type: String },
+      testo: { type: Testo }
     };
   }
 
   constructor() {
     super();
     this.title = 'open-wc';
+    this.testo = Testo.uno;
   }
 
   static get styles() {
@@ -60,7 +69,7 @@ class MyApp extends LitElement {
     return html`
       <header class="app-header">
         ${openWc}
-        <h1>${this.title}</h1>
+        <h1>${this.title} ${this.testo}</h1>
         <p>Edit <code>src/my-app.js</code> and save to reload.</p>
         <a
           class="app-link"

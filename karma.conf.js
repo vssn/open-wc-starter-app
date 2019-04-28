@@ -11,6 +11,22 @@ module.exports = config => {
       ],
 
       // your custom config
+      webpack: {
+        devtool: 'inline-source-map',
+        mode: 'development',
+        resolve: {
+          extensions: ['.ts', '.js'],
+        },
+        module: {
+          rules: [
+            {
+              test: /\.ts(x?)$/,
+              loader: 'ts-loader',
+              exclude: /node_modules/,
+            },
+          ],
+        },
+      },
     }),
   );
   return config;

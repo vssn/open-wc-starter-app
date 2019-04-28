@@ -1,6 +1,6 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../src/my-app';
+import '../src/my-app.ts';
 
 describe('<my-app>', () => {
   it('has a default property header', async () => {
@@ -13,5 +13,12 @@ describe('<my-app>', () => {
       <my-app title="different"></my-app>
     `);
     expect(el.title).to.equal('different');
+  });
+
+  it('has a property testo', async () => {
+    const el = await fixture(html`
+      <my-app title="different"></my-app>
+    `);
+    expect(el.testo).to.equal('Yo');
   });
 });
